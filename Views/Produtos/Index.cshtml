@@ -4,7 +4,8 @@
 }
 
 <h1 class="text-primary">Produtos</h1>
-
+<hr>
+<a href="/Produtos/Cadastrar" class="btn btn-primary">Novo Produto</a>
 <table class="table">
     <thead>
         <tr>
@@ -20,6 +21,10 @@
                 <td>@u.Descricao</td>
                 <td>@u.DataCadastro</td>
                 <td>@u.Valor</td>
+                <td>
+                    <a asp-action="Alterar" asp-route-id="@u.IdProduto" class="btn btn-sm btn-secondary">Alterar</a>
+                    <a asp-action="Excluir" asp-route-id="@u.IdProduto" class="btn btn-sm btn-danger">Excluir</a>
+                </td>
             </tr>
         }
     </tbody>

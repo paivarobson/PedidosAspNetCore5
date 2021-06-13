@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -31,6 +32,33 @@ namespace PedidosAspNetCore5.Models
                 new Produto { IdProduto = 4, Descricao = "Azeitona", DataCadastro = "12/06/2021", Valor = 2.99 });
             Produto.listagem.Add(
                 new Produto { IdProduto = 5, Descricao = "Acerola", DataCadastro = "12/06/2021", Valor = 1.99 });
+        }
+
+        public static void Salvar(Produto produto)
+        {
+            var produtoExistente = Produto.listagem.Find(u => u.IdProduto == produto.IdProduto);
+            if (produtoExistente != null)
+            {
+                produtoExistente.Descricao = produto.Descricao;
+                produtoExistente.Valor = produto.Valor;
+                produtoExistente.DataCadastro = DateTime.Today.ToString("dd/MM/yyyy");
+            }
+            else
+            {
+                int maiorId = Produto.Listagem.Max(u => u.IdProduto);
+                produto.IdProduto = maiorId + 1;
+                produto.DataCadastro = DateTime.Today.ToString("dd/MM/yyyy");
+                Produto.listagem.Add(produto);
+            }
+        }
+
+        public static void Excluir(int idProduto)
+        {
+            var produtoExistente = Produto.listagem.Find(u => u.IdProduto == idProduto);
+            if (produtoExistente != null)
+            {
+                Produto.listagem.Remove(produtoExistente);
+            }
         }
 
     }
