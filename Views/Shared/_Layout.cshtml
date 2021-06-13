@@ -1,5 +1,5 @@
 @{
-    var actionAtual = ViewContext.RouteData.Values["action"].ToString();
+    var controllerAtual = ViewContext.RouteData.Values["controller"].ToString();
 }
 
 <!DOCTYPE html>
@@ -22,13 +22,13 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarMain">
                 <div class="navbar-nav">
-                    <a class="nav-link @(actionAtual == "Index" ? "active" : "")" asp-controller="Home"
+                    <a class="nav-link @(controllerAtual == "Home" ? "active" : "")" asp-controller="Home"
                         asp-action="Index">Home</a>
-                    <a class="nav-link @(actionAtual == "Pedidos" ? "active" : "")" asp-controller="Pedidos"
+                    <a class="nav-link @(controllerAtual == "Pedidos" ? "active" : "")" asp-controller="Pedidos"
                         asp-action="Index">Pedidos</a>
-                    <a class="nav-link @(actionAtual == "Fornecedores" ? "active" : "")" asp-controller="Fornecedores"
-                        asp-action="Index">Fornecedores</a>
-                    <a class="nav-link @(actionAtual == "Produtos" ? "active" : "")" asp-controller="Produtos"
+                    <a class="nav-link @(controllerAtual == "Fornecedores" ? "active" : "")"
+                        asp-controller="Fornecedores" asp-action="Index">Fornecedores</a>
+                    <a class="nav-link @(controllerAtual == "Produtos" ? "active" : "")" asp-controller="Produtos"
                         asp-action="Index">Produtos</a>
                 </div>
             </div>
