@@ -20,6 +20,18 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            <div class="collapse navbar-collapse" id="navbarMain">
+                <div class="navbar-nav">
+                    <a class="nav-link @(actionAtual == "Index" ? "active" : "")" asp-controller="Home"
+                        asp-action="Index">Home</a>
+                    <a class="nav-link @(actionAtual == "Pedidos" ? "active" : "")" asp-controller="Pedidos"
+                        asp-action="Index">Pedidos</a>
+                    <a class="nav-link @(actionAtual == "Fornecedores" ? "active" : "")" asp-controller="Fornecedores"
+                        asp-action="Index">Fornecedores</a>
+                    <a class="nav-link @(actionAtual == "Produtos" ? "active" : "")" asp-controller="Produtos"
+                        asp-action="Index">Produtos</a>
+                </div>
+            </div>
         </div>
     </nav>
     <div class="container mt-2">
