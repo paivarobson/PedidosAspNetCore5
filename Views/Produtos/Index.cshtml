@@ -15,15 +15,15 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var u in Model)
+        @foreach (var p in Model)
         {
             <tr>
-                <td>@u.Descricao</td>
-                <td>@u.DataCadastro</td>
-                <td>@u.Valor</td>
+                <td>@p.Descricao</td>
+                <td>@p.DataCadastro</td>
+                <td>@p.Valor</td>
                 <td>
-                    <a asp-action="Alterar" asp-route-id="@u.IdProduto" class="btn btn-sm btn-secondary">Alterar</a>
-                    <a asp-action="Excluir" asp-route-id="@u.IdProduto" class="btn btn-sm btn-danger">Excluir</a>
+                    <a asp-action="Alterar" asp-route-id="@p.IdProduto" class="btn btn-sm btn-secondary">Alterar</a>
+                    <a asp-action="Excluir" asp-route-id="@p.IdProduto" class="btn btn-sm btn-danger">Excluir</a>
                 </td>
             </tr>
         }
