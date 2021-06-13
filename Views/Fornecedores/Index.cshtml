@@ -1,0 +1,35 @@
+@model IQueryable<Fornecedor>
+@{
+    ViewBag.Subtitulo = "Fornecedores";
+}
+
+<h1 class="text-primary">Fornecedores</h1>
+<hr>
+<a href="/Fornecedores/Cadastrar" class="btn btn-primary">Novo Fornecedor</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Razão Social</th>
+            <th>CNPJ</th>
+            <th>UF</th>
+            <th>E-mail</th>
+            <th>Nome do Contato</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var u in Model)
+        {
+            <tr>
+                <td>@u.RazaoSocial</td>
+                <td>@u.CNPJ</td>
+                <td>@u.UF</td>
+                <td>@u.EmailContato</td>
+                <td>@u.NomeContato</td>
+                <td>
+                    <a asp-action="Alterar" asp-route-id="@u.IdFornecedor" class="btn btn-sm btn-secondary">Alterar</a>
+                    <a asp-action="Excluir" asp-route-id="@u.IdFornecedor" class="btn btn-sm btn-danger">Excluir</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

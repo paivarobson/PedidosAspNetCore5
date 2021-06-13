@@ -1,0 +1,16 @@
+@model Fornecedor
+@{
+    ViewBag.Subtitulo = "Exclusão de Fornecedor";
+}
+
+<h1 class="text-primary">Exclusão de Fornecedor</h1>
+<hr>
+<h4>Deseja realmente excluir o fornecedor <span class="text-danger">@Model.RazaoSocial?</span></h4>
+<form method="POST" class="w-25">
+    <input type="hidden" asp-for="IdFornecedor">
+
+    <div class="mt-3">
+        <a asp-action="Index" class="btn btn-success">Não</a>
+        <button class="btn btn-danger" type="submit">Sim</button>
+    </div>
+</form>
