@@ -1,0 +1,26 @@
+@model IQueryable<Produto>
+@{
+    ViewBag.Subtitulo = "Produtos";
+}
+
+<h1 class="text-primary">Produtos</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Descrição</th>
+            <th>Data do Cadastro</th>
+            <th>Valor</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var u in Model)
+        {
+            <tr>
+                <td>@u.Descricao</td>
+                <td>@u.DataCadastro</td>
+                <td>@u.Valor</td>
+            </tr>
+        }
+    </tbody>
+</table>
