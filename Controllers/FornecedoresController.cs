@@ -58,7 +58,6 @@ namespace PedidosAspNetCore5.Controllers
             return RedirectToAction("Index");
         }
 
-
         [HttpGet]
         public IActionResult Excluir(int? id)
         {
