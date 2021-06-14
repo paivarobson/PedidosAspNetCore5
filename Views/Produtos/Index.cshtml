@@ -20,10 +20,10 @@
             <tr>
                 <td>@p.Descricao</td>
                 <td>@p.DataCadastro</td>
-                <td>@p.Valor</td>
+                <td>@p.Preco</td>
                 <td>
-                    <a asp-action="Alterar" asp-route-id="@p.IdProduto" class="btn btn-sm btn-secondary">Alterar</a>
-                    <a asp-action="Excluir" asp-route-id="@p.IdProduto" class="btn btn-sm btn-danger">Excluir</a>
+                    <a asp-action="Alterar" asp-route-id="@p.ProdutoId" class="btn btn-sm btn-secondary">Alterar</a>
+                    <a asp-action="Excluir" asp-route-id="@p.ProdutoId" class="btn btn-sm btn-danger">Excluir</a>
                 </td>
             </tr>
         }

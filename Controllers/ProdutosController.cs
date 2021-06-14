@@ -15,9 +15,9 @@ namespace PedidosAspNetCore5.Controllers
         [HttpGet]
         public IActionResult Cadastrar(int? id)
         {
-            if (id.HasValue && Models.Produto.Listagem.Any(u => u.IdProduto == id))
+            if (id.HasValue && Models.Produto.Listagem.Any(u => u.ProdutoId == id))
             {
-                var produto = Models.Produto.Listagem.Single(u => u.IdProduto == id);
+                var produto = Models.Produto.Listagem.Single(u => u.ProdutoId == id);
                 return base.View(produto);
             }
             return View();
@@ -33,9 +33,9 @@ namespace PedidosAspNetCore5.Controllers
         [HttpGet]
         public IActionResult Alterar(int? id)
         {
-            if (id.HasValue && Models.Produto.Listagem.Any(u => u.IdProduto == id))
+            if (id.HasValue && Models.Produto.Listagem.Any(u => u.ProdutoId == id))
             {
-                var produto = Models.Produto.Listagem.Single(u => u.IdProduto == id);
+                var produto = Models.Produto.Listagem.Single(u => u.ProdutoId == id);
                 return base.View(produto);
             }
             return View();
@@ -52,9 +52,9 @@ namespace PedidosAspNetCore5.Controllers
         [HttpGet]
         public IActionResult Excluir(int? id)
         {
-            if (id.HasValue && Models.Produto.Listagem.Any(u => u.IdProduto == id))
+            if (id.HasValue && Models.Produto.Listagem.Any(u => u.ProdutoId == id))
             {
-                var produto = Models.Produto.Listagem.Single(u => u.IdProduto == id);
+                var produto = Models.Produto.Listagem.Single(u => u.ProdutoId == id);
                 return base.View(produto);
             }
             return RedirectToAction("Index");
@@ -63,7 +63,7 @@ namespace PedidosAspNetCore5.Controllers
         [HttpPost]
         public IActionResult Excluir(Produto produto)
         {
-            Models.Produto.Excluir(produto.IdProduto);
+            Models.Produto.Excluir(produto.ProdutoId);
             return RedirectToAction("Index");
         }
     }
