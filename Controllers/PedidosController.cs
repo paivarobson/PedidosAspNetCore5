@@ -1,5 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using PedidosAspNetCore5.Models;
+using System;
 using System.Linq;
 
 namespace PedidosAspNetCore5.Controllers
@@ -19,13 +22,12 @@ namespace PedidosAspNetCore5.Controllers
         }
 
         [HttpGet]
-        public IActionResult Cadastrar(int? id)
+        public IActionResult Cadastrar()
         {
-            if (id.HasValue && db.Pedidos.ToList().AsQueryable().Any(u => u.PedidoId == id))
-            {
-                var pedido = db.Pedidos.ToList().AsQueryable().Single(u => u.PedidoId == id);
-                return base.View(pedido);
-            }
+            ViewBag.Fornecedor =
+                db.Fornecedores.ToList().Select(c => new SelectListItem()
+                { Text = c.FornecedorId + " - " + c.RazaoSocial, Value = Convert.ToString(c.FornecedorId) }).ToList();
+
             return View();
         }
 
@@ -41,6 +43,10 @@ namespace PedidosAspNetCore5.Controllers
         [HttpGet]
         public IActionResult Alterar(int? id)
         {
+            ViewBag.Fornecedor =
+                db.Fornecedores.ToList().Select(c => new SelectListItem()
+                { Text = c.FornecedorId + " - " + c.RazaoSocial, Value = Convert.ToString(c.FornecedorId) }).ToList();
+
             if (id.HasValue && db.Pedidos.ToList().AsQueryable().Any(u => u.PedidoId == id))
             {
                 var pedido = db.Pedidos.ToList().AsQueryable().Single(u => u.PedidoId == id);
