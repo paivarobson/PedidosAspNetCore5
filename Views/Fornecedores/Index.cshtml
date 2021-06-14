@@ -9,6 +9,7 @@
 <table class="table">
     <thead>
         <tr>
+            <th>Código</th>
             <th>Razão Social</th>
             <th>CNPJ</th>
             <th>UF</th>
@@ -20,6 +21,7 @@
         @foreach (var f in Model)
         {
             <tr>
+                <td>@f.FornecedorId</td>
                 <td>@f.RazaoSocial</td>
                 <td>@f.CNPJ</td>
                 <td>@f.UF</td>
