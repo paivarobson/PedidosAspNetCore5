@@ -24,7 +24,7 @@ namespace PedidosAspNetCore5.Controllers
         [HttpGet]
         public IActionResult Cadastrar()
         {
-            ViewBag.Fornecedor =
+            ViewBag.Fornecedores =
                 db.Fornecedores.ToList().Select(f => new SelectListItem()
                 { Text = f.FornecedorId + " - " + f.RazaoSocial, Value = Convert.ToString(f.FornecedorId) }).ToList();
 
@@ -43,7 +43,7 @@ namespace PedidosAspNetCore5.Controllers
         [HttpGet]
         public IActionResult Alterar(int? id)
         {
-            ViewBag.Fornecedor =
+            ViewBag.Fornecedores =
                 db.Fornecedores.ToList().Select(f => new SelectListItem()
                 { Text = f.FornecedorId + " - " + f.RazaoSocial, Value = Convert.ToString(f.FornecedorId) }).ToList();
 
