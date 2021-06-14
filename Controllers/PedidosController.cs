@@ -25,8 +25,8 @@ namespace PedidosAspNetCore5.Controllers
         public IActionResult Cadastrar()
         {
             ViewBag.Fornecedor =
-                db.Fornecedores.ToList().Select(c => new SelectListItem()
-                { Text = c.FornecedorId + " - " + c.RazaoSocial, Value = Convert.ToString(c.FornecedorId) }).ToList();
+                db.Fornecedores.ToList().Select(f => new SelectListItem()
+                { Text = f.FornecedorId + " - " + f.RazaoSocial, Value = Convert.ToString(f.FornecedorId) }).ToList();
 
             return View();
         }
@@ -44,12 +44,12 @@ namespace PedidosAspNetCore5.Controllers
         public IActionResult Alterar(int? id)
         {
             ViewBag.Fornecedor =
-                db.Fornecedores.ToList().Select(c => new SelectListItem()
-                { Text = c.FornecedorId + " - " + c.RazaoSocial, Value = Convert.ToString(c.FornecedorId) }).ToList();
+                db.Fornecedores.ToList().Select(f => new SelectListItem()
+                { Text = f.FornecedorId + " - " + f.RazaoSocial, Value = Convert.ToString(f.FornecedorId) }).ToList();
 
-            if (id.HasValue && db.Pedidos.ToList().AsQueryable().Any(u => u.PedidoId == id))
+            if (id.HasValue && db.Pedidos.ToList().AsQueryable().Any(p => p.PedidoId == id))
             {
-                var pedido = db.Pedidos.ToList().AsQueryable().Single(u => u.PedidoId == id);
+                var pedido = db.Pedidos.ToList().AsQueryable().Single(p => p.PedidoId == id);
 
                 return base.View(pedido);
             }
@@ -68,9 +68,9 @@ namespace PedidosAspNetCore5.Controllers
         [HttpGet]
         public IActionResult Excluir(int? id)
         {
-            if (id.HasValue && db.Pedidos.ToList().AsQueryable().Any(u => u.PedidoId == id))
+            if (id.HasValue && db.Pedidos.ToList().AsQueryable().Any(p => p.PedidoId == id))
             {
-                var pedido = db.Pedidos.ToList().AsQueryable().Single(u => u.PedidoId == id);
+                var pedido = db.Pedidos.ToList().AsQueryable().Single(p => p.PedidoId == id);
                 return base.View(pedido);
             }
             return RedirectToAction("Index");
