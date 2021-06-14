@@ -2,9 +2,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace PedidosAspNetCore5.Models
 {
-    public class AppDbContext : DbContext
+    public class PedidosDbContext : DbContext
     {
-        public AppDbContext(DbContextOptions<AppDbContext> options)
+        public PedidosDbContext(DbContextOptions<PedidosDbContext> options)
             : base(options)
         { }
 
