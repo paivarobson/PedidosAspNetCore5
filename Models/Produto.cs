@@ -10,7 +10,7 @@ namespace PedidosAspNetCore5.Models
         public string Descricao { get; set; }
         public string DataCadastro { get; set; }
         public double Preco { get; set; }
-        public ICollection<ItemPedido> ItensPedido { get; set; }
+        public ICollection<PedidoItem> PedidoItens { get; set; }
 
     }
 }
