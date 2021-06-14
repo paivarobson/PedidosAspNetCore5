@@ -9,6 +9,5 @@ namespace PedidosAspNetCore5.Models
         public int QtdeProduto { get; set; }
         public double PrecoUnitario { get; set; }
         public double ValorTotal { get; set; }
-
     }
 }
