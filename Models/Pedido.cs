@@ -9,8 +9,6 @@ namespace PedidosAspNetCore5.Models
         public int PedidoId { get; set; }
         public int FornecedorId { get; set; }
         public Fornecedor Fornecedor { get; set; }
-        public int ItemPedidoId { get; set; }
-        public ItemPedido ItemPedido { get; set; }
         public string DataCadastro { get; set; }
         public double Valor { get; set; }
         public ICollection<ItemPedido> Itens { get; set; }
