@@ -9,6 +9,7 @@
 <table class="table">
     <thead>
         <tr>
+            <th>Fornecedor</th>
             <th>Data do Cadastro</th>
             <th>Valor Total</th>
         </tr>
@@ -17,6 +18,7 @@
         @foreach (var p in Model)
         {
             <tr>
+                <td>@p.FornecedorId</td>
                 <td>@p.DataCadastro</td>
                 <td>@p.Valor</td>
                 <td>
