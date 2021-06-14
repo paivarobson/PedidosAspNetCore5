@@ -18,10 +18,10 @@
         {
             <tr>
                 <td>@p.DataCadastro</td>
-                <td>@p.ValorTotal</td>
+                <td>@p.Valor</td>
                 <td>
-                    <a asp-action="Alterar" asp-route-id="@p.IdPedido" class="btn btn-sm btn-secondary">Alterar</a>
-                    <a asp-action="Excluir" asp-route-id="@p.IdPedido" class="btn btn-sm btn-danger">Excluir</a>
+                    <a asp-action="Alterar" asp-route-id="@p.PedidoId" class="btn btn-sm btn-secondary">Alterar</a>
+                    <a asp-action="Excluir" asp-route-id="@p.PedidoId" class="btn btn-sm btn-danger">Excluir</a>
                 </td>
             </tr>
         }

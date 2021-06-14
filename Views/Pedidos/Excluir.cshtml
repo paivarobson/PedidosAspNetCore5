@@ -5,9 +5,9 @@
 
 <h1 class="text-primary">Exclusão do Pedido</h1>
 <hr>
-<h4>Deseja realmente excluir o pedido <span class="text-danger">@Model.IdPedido?</span></h4>
+<h4>Deseja realmente excluir o pedido <span class="text-danger">@Model.PedidoId?</span></h4>
 <form method="POST" class="w-25">
-    <input type="hidden" asp-for="IdPedido">
+    <input type="hidden" asp-for="PedidoId">
 
     <div class="mt-3">
         <a asp-action="Index" class="btn btn-success">Não</a>

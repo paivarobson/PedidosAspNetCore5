@@ -15,9 +15,9 @@ namespace PedidosAspNetCore5.Controllers
         [HttpGet]
         public IActionResult Cadastrar(int? id)
         {
-            if (id.HasValue && Models.Pedido.Listagem.Any(u => u.IdPedido == id))
+            if (id.HasValue && Models.Pedido.Listagem.Any(u => u.PedidoId == id))
             {
-                var pedido = Models.Pedido.Listagem.Single(u => u.IdPedido == id);
+                var pedido = Models.Pedido.Listagem.Single(u => u.PedidoId == id);
                 return base.View(pedido);
             }
             return View();
@@ -33,9 +33,9 @@ namespace PedidosAspNetCore5.Controllers
         [HttpGet]
         public IActionResult Alterar(int? id)
         {
-            if (id.HasValue && Models.Pedido.Listagem.Any(u => u.IdPedido == id))
+            if (id.HasValue && Models.Pedido.Listagem.Any(u => u.PedidoId == id))
             {
-                var pedido = Models.Pedido.Listagem.Single(u => u.IdPedido == id);
+                var pedido = Models.Pedido.Listagem.Single(u => u.PedidoId == id);
                 return base.View(pedido);
             }
             return View();
@@ -52,9 +52,9 @@ namespace PedidosAspNetCore5.Controllers
         [HttpGet]
         public IActionResult Excluir(int? id)
         {
-            if (id.HasValue && Models.Pedido.Listagem.Any(u => u.IdPedido == id))
+            if (id.HasValue && Models.Pedido.Listagem.Any(u => u.PedidoId == id))
             {
-                var pedido = Models.Pedido.Listagem.Single(u => u.IdPedido == id);
+                var pedido = Models.Pedido.Listagem.Single(u => u.PedidoId == id);
                 return base.View(pedido);
             }
             return RedirectToAction("Index");
@@ -63,7 +63,7 @@ namespace PedidosAspNetCore5.Controllers
         [HttpPost]
         public IActionResult Excluir(Pedido pedido)
         {
-            Models.Pedido.Excluir(pedido.IdPedido);
+            Models.Pedido.Excluir(pedido.PedidoId);
             return RedirectToAction("Index");
         }
     }
