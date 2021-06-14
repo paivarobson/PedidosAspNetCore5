@@ -8,7 +8,7 @@ using PedidosAspNetCore5.Models;
 
 namespace PedidosAspNetCore5.Migrations
 {
-    [DbContext(typeof(PedidosDbContext))]
+    [DbContext(typeof(DataDbContext))]
     [Migration("20210614011529_CriacaoTabelas")]
     partial class CriacaoTabelas
     {

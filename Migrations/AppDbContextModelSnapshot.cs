@@ -7,8 +7,8 @@ using PedidosAspNetCore5.Models;
 
 namespace PedidosAspNetCore5.Migrations
 {
-    [DbContext(typeof(PedidosDbContext))]
-    partial class PedidosDbContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(DataDbContext))]
+    partial class DataDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
