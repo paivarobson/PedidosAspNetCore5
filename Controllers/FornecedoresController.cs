@@ -15,9 +15,9 @@ namespace PedidosAspNetCore5.Controllers
         [HttpGet]
         public IActionResult Cadastrar(int? id)
         {
-            if (id.HasValue && Models.Fornecedor.Listagem.Any(u => u.IdFornecedor == id))
+            if (id.HasValue && Models.Fornecedor.Listagem.Any(u => u.FornecedorId == id))
             {
-                var fornecedor = Models.Fornecedor.Listagem.Single(u => u.IdFornecedor == id);
+                var fornecedor = Models.Fornecedor.Listagem.Single(u => u.FornecedorId == id);
                 return base.View(fornecedor);
             }
             return View();
@@ -33,9 +33,9 @@ namespace PedidosAspNetCore5.Controllers
         [HttpGet]
         public IActionResult Alterar(int? id)
         {
-            if (id.HasValue && Models.Fornecedor.Listagem.Any(u => u.IdFornecedor == id))
+            if (id.HasValue && Models.Fornecedor.Listagem.Any(u => u.FornecedorId == id))
             {
-                var fornecedor = Models.Fornecedor.Listagem.Single(u => u.IdFornecedor == id);
+                var fornecedor = Models.Fornecedor.Listagem.Single(u => u.FornecedorId == id);
                 return base.View(fornecedor);
             }
             return View();
@@ -52,9 +52,9 @@ namespace PedidosAspNetCore5.Controllers
         [HttpGet]
         public IActionResult Excluir(int? id)
         {
-            if (id.HasValue && Models.Fornecedor.Listagem.Any(u => u.IdFornecedor == id))
+            if (id.HasValue && Models.Fornecedor.Listagem.Any(u => u.FornecedorId == id))
             {
-                var fornecedor = Models.Fornecedor.Listagem.Single(u => u.IdFornecedor == id);
+                var fornecedor = Models.Fornecedor.Listagem.Single(u => u.FornecedorId == id);
                 return base.View(fornecedor);
             }
             return RedirectToAction("Index");
@@ -63,7 +63,7 @@ namespace PedidosAspNetCore5.Controllers
         [HttpPost]
         public IActionResult Excluir(Fornecedor fornecedor)
         {
-            Models.Fornecedor.Excluir(fornecedor.IdFornecedor);
+            Models.Fornecedor.Excluir(fornecedor.FornecedorId);
             return RedirectToAction("Index");
         }
     }
