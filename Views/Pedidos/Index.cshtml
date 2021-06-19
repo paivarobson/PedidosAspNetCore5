@@ -6,28 +6,53 @@
 <h1 class="text-primary">Listagem de pedidos por Fornecedor</h1>
 <hr>
 <a href="/Pedidos/Cadastrar" class="btn btn-primary">Novo Pedido</a>
+
 <table class="table">
-    <thead>
-        <tr>
-            <th>Código</th>
-            <th>Fornecedor</th>
-            <th>Data do Cadastro</th>
-            <th>Valor Total</th>
-        </tr>
-    </thead>
+
     <tbody>
-        @foreach (var p in Model)
+        @foreach (var f in Model)
         {
+            <thead>
+                <tr bgcolor="gray">
+                    <th>Fornecedor</th>
+                    <th><b>@f.FornecedorId</b></th>
+                </tr>
+            </thead>
+
             <tr>
-                <td>@p.PedidoId</td>
-                <td>@p.FornecedorId</td>
-                <td>@p.DataCadastro</td>
-                <td>@p.Valor</td>
-                <td>
-                    <a asp-action="Alterar" asp-route-id="@p.PedidoId" class="btn btn-sm btn-secondary">Alterar</a>
-                    <a asp-action="Excluir" asp-route-id="@p.PedidoId" class="btn btn-sm btn-danger">Excluir</a>
-                </td>
+
             </tr>
+            <tr>
+                <th>Pedido</th>
+                <th>Data do Cadastro</th>
+                <th>Valor Total</th>
+            </tr>
+        <tbody>
+
+                @foreach (var p in Model)
+                {
+                    @if (p.FornecedorId == f.FornecedorId)
+                    {
+                    <tr>
+                        <td><b>@p.PedidoId</b></td>
+                        <td>@p.DataCadastro</td>
+                        <td>@p.Valor</td>
+                        <td>
+                            <a asp-action="Alterar" asp-route-id="@p.PedidoId" class="btn btn-sm btn-secondary">Alterar</a>
+                            <a asp-action="Excluir" asp-route-id="@p.PedidoId" class="btn btn-sm btn-danger">Excluir</a>
+                        </td>
+
+                    </tr>
+                    }
+                }
+
+        </tbody>
+
+
+
         }
     </tbody>
+
+
+
 </table>
