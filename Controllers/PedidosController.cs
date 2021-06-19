@@ -18,6 +18,10 @@ namespace PedidosAspNetCore5.Controllers
         }
         public IActionResult Index()
         {
+            ViewBag.Fornecedores =
+                db.Fornecedores.ToList().Select(f => new SelectListItem()
+                { Text = f.FornecedorId + " - " + f.RazaoSocial, Value = Convert.ToString(f.FornecedorId) }).ToList();
+
             return base.View(db.Pedidos.ToList().AsQueryable());
         }
 

@@ -6,28 +6,37 @@
 <h1 class="text-primary">Listagem de pedidos por Fornecedor</h1>
 <hr>
 <a href="/Pedidos/Cadastrar" class="btn btn-primary">Novo Pedido</a>
-
+<hr>
 <table class="table">
 
     <tbody>
-        @foreach (var f in Model)
+        @{
+            bool cabecalhoFornecedorExibido;
+        }
+        @foreach (var f in ViewBag.Fornecedores)
         {
-            <thead>
-                <tr bgcolor="gray">
-                    <th>Fornecedor</th>
-                    <th><b>@f.FornecedorId</b></th>
-                </tr>
-            </thead>
-
-            <tr>
-                <th>Pedido</th>
-                <th>Data do Cadastro</th>
-                <th>Valor Total</th>
-            </tr>
+            cabecalhoFornecedorExibido = true;
             @foreach (var p in Model)
             {
-                @if (p.FornecedorId == f.FornecedorId)
+                @if (p.FornecedorId == Convert.ToInt32(f.Value))
                 {
+
+                    if (cabecalhoFornecedorExibido)
+                    {
+                        <thead>
+                            <tr bgcolor="gray">
+                                <th>Fornecedor</th>
+                                <th><b>@f.Text</b></th>
+                            </tr>
+                            <tr>
+                                <th>Pedido</th>
+                                <th>Data do Cadastro</th>
+                                <th>Valor Total</th>
+                            </tr>
+                        </thead>
+                        cabecalhoFornecedorExibido = false;
+                    }
+
                     <tr>
                         <td><b>@p.PedidoId</b></td>
                         <td>@p.DataCadastro</td>
