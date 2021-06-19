@@ -32,6 +32,10 @@ namespace PedidosAspNetCore5.Controllers
                 db.Fornecedores.ToList().Select(f => new SelectListItem()
                 { Text = f.FornecedorId + " - " + f.RazaoSocial, Value = Convert.ToString(f.FornecedorId) }).ToList();
 
+            ViewBag.CodigoProximoPedido = db.Pedidos.OrderByDescending(p => p.PedidoId).Take(1).Last().PedidoId + 1;
+
+            ViewBag.DataCadastro = DateTime.Today.ToString("dd/MM/yyyy");
+
             return View();
         }
 
