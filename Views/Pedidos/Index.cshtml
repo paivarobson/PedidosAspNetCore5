@@ -20,19 +20,14 @@
             </thead>
 
             <tr>
-
-            </tr>
-            <tr>
                 <th>Pedido</th>
                 <th>Data do Cadastro</th>
                 <th>Valor Total</th>
             </tr>
-        <tbody>
-
-                @foreach (var p in Model)
+            @foreach (var p in Model)
+            {
+                @if (p.FornecedorId == f.FornecedorId)
                 {
-                    @if (p.FornecedorId == f.FornecedorId)
-                    {
                     <tr>
                         <td><b>@p.PedidoId</b></td>
                         <td>@p.DataCadastro</td>
@@ -43,16 +38,8 @@
                         </td>
 
                     </tr>
-                    }
                 }
-
-        </tbody>
-
-
-
+            }
         }
     </tbody>
-
-
-
 </table>
