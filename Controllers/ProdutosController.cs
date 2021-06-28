@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using PedidosAspNetCore5.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -28,6 +29,11 @@ namespace PedidosAspNetCore5.Controllers
                 var produto = db.Produtos.ToList().AsQueryable().Single(u => u.ProdutoId == id);
                 return base.View(produto);
             }
+
+            ViewBag.CodigoProximoProduto = db.Produtos.OrderByDescending(p => p.ProdutoId).Take(1).Last().ProdutoId + 1;
+
+            ViewBag.DataCadastro = DateTime.Today.ToString("dd/MM/yyyy");
+
             return View();
         }
 
